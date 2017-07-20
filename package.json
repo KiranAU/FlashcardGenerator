@@ -1,0 +1,22 @@
+{
+  "name": "flashcardgenerator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiranAU/FlashcardGenerator.git"
+  },
+  "author": "Kiran Uttarkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KiranAU/FlashcardGenerator/issues"
+  },
+  "homepage": "https://github.com/KiranAU/FlashcardGenerator#readme",
+  "dependencies": {
+    "inquirer": "^3.2.0"
+  }
+}
