@@ -7,22 +7,26 @@ var inquirer = require('inquirer');
 // require fs
 var fs = require('fs');
 
-inquirer.prompt([{
-    name: 'command',
-    message: 'What would you like to do?',
-    type: 'list',
-    choices: [{
-        name: 'add-flashcard'
-    }, {
-        name: 'show-all-cards'
-    }]
-}]).then(function(answer) {
-    if (answer.command === 'add-flashcard') {
-        addCard();
-    } else if (answer.command === 'show-all-cards') {
-        showCards();
-    }
-});
+start();
+
+function start() {
+    inquirer.prompt([{
+        name: 'command',
+        message: 'What would you like to do?',
+        type: 'list',
+        choices: [{
+            name: 'add-flashcard'
+        }, {
+            name: 'show-all-cards'
+        }]
+    }]).then(function(answer) {
+        if (answer.command === 'add-flashcard') {
+            addCard();
+        } else if (answer.command === 'show-all-cards') {
+            showCards();
+        }
+    });
+}
 
 var addCard = function() {
     // get user input
@@ -165,14 +169,18 @@ var showQuestion = function(array, index) {
     }]).then(function(answer) {
         if (answer.response === correctReponse) {
             console.log('Correct!');
-            if (index < array.length - 1) {
-                showQuestion(array, index + 1);
-            }
+            // if (index < array.length - 1) {
+            //     showQuestion(array, index + 1);
+            // }
         } else {
             console.log('No! The correct answer is: ' + correctReponse + '.');
-            if (index < array.length - 1) {
-                showQuestion(array, index + 1);
-            }
+
+        }
+        //check if more questions
+        if (index < array.length - 1) {
+            showQuestion(array, index + 1);
+        } else {
+            start();
         }
     });
 };

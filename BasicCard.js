@@ -23,11 +23,10 @@ function BasicFlashcard(front, back) {
                 }
             });
         };
-        /* If the this object is not a CarPart (ie, it's a window object), 
-        call the constructor again, this time with the new operator.
-Now our constructor works properly with or without the new operator.
-*/
     } else {
+        /* If the this object is not a BasicFlashcard (ie, it's a window object), 
+        call the constructor again, this time with the new operator.
+       Now the constructor works properly with or without the new operator */
         return new BasicFlashcard(front, back);
     }
 };
